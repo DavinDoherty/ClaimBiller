@@ -1,0 +1,48 @@
+<div id="header">
+    <div id="logo"><a href="index.php"><img src="images/app_logo.png" width="80" height="80"></a></div>
+	
+	
+    <div id="providenceireland.ie"></div>
+	
+</div>
+
+<div id="user"><img src="images/user.png" width="24" height="24"></div>
+
+<div id="header-nav">
+    <ul>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn" onclick="myFunction()">OPEN RECORDS</a>
+            <div class="dropdown-content" id="myDropdown">
+                <a href="displayallproperties.php">VIEW ALL</a>
+                <a href="displayproperties.php?categoryid=1">VIEW PAID</a>
+                <a href="displayproperties.php?categoryid=2">VIEW DENIED</a>
+            </div>
+        <li><a href="agents.php">SUBMIT CLAIM</a></li>
+        <li><a href="about.php">GENERAL QUERY</a></li>
+        <li><a href="getfeedback.php">DETAIL ANALYSIS</a></li>
+	    
+        </li>
+    </ul>
+</div>
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var d = 0; d < dropdowns.length; d++) {
+      var openDropdown = dropdowns[d];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
