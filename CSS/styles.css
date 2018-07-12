@@ -9,7 +9,8 @@ html, body{background-color: white; font-family: Arial,Arial, Helvetica, sans-se
     min-height:100%;
     position:relative;
     width: 100%;
-	
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 20px;
 }
 
 #footer
@@ -83,15 +84,26 @@ html, body{background-color: white; font-family: Arial,Arial, Helvetica, sans-se
 		background-repeat: no-repeat; 
     }
     
-    #content2Test
-	{
-		color:#4D4D4D;
-		background-color: #FFFFFF;
-		padding-left: 20px;
-		min-height: 300px;
-		background-image: url(images/homes/MainImage.jpg); 
-		background-repeat: no-repeat; 
-	}
+    .btn {
+        width:150px;
+        background-color: #59B2E0;
+        outline: none;
+        color: #fff;
+        font-size: 14px;
+        height: auto;
+        font-weight: normal;
+        padding: 14px 0;
+        text-transform: uppercase;
+        border-color: #59B2E6;
+    }
+    .btn:hover,
+    .btn:focus {
+        color: #fff;
+        background-color: #53A3CD;
+        border-color: #53A3CD;
+    }
+    
+    
 	
 	
 
