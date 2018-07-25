@@ -1,20 +1,26 @@
 form
     {
+        
         border-radius: 25px;
         width: 50%;
         
         font-size: 20px;
+        
     }
+   
     #username
     {
-        width: 250px;
         
+        width: 300px;
+        
+        /*border: solid 1px red;*/
        
     }
     #password
     {
         width: 300px;
-        padding-left: 20px;
+        
        
      
     }
+    

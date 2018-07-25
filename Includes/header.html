@@ -1,29 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Medical Claim Biller</title>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/lists.css">
+    <link rel="stylesheet" href="css/page_text.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+
 <div id="header">
+      
     <div id="logo"><a href="index.php"><img src="images/app_logo.png" width="80" height="80"></a></div>
 	
-	
-    <div id="providenceireland.ie"></div>
 	
 </div>
 
 <div id="user"><img src="images/user.png" width="24" height="24"></div>
 
+
 <div id="header-nav">
+        
     <ul>
-        <li class="dropdown">
+        <li class="primary dropdown-toggle">
             <a href="javascript:void(0)" class="dropbtn" onclick="myFunction()">OPEN RECORDS</a>
             <div class="dropdown-content" id="myDropdown">
                 <a href="displayallproperties.php">VIEW ALL</a>
                 <a href="displayproperties.php?categoryid=1">VIEW PAID</a>
                 <a href="displayproperties.php?categoryid=2">VIEW DENIED</a>
             </div>
-        <li><a href="agents.php">SUBMIT CLAIM</a></li>
-        <li><a href="about.php">GENERAL QUERY</a></li>
-        <li><a href="getfeedback.php">DETAIL ANALYSIS</a></li>
+                <li><a href="agents.php">SUBMIT CLAIM</a></li>
+                <li><a href="about.php">GENERAL QUERY</a></li>
+                <li><a href="getfeedback.php">DETAIL ANALYSIS</a></li>
+                <li><a href="admin.php">ADMIN</a></li>
 	    
         </li>
     </ul>
 </div>
+
 
 <script>
 /* When the user clicks on the button,
@@ -46,3 +64,5 @@ window.onclick = function(e) {
   }
 }
 </script>
+</body>
+</html>
