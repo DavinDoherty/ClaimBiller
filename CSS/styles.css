@@ -61,7 +61,7 @@ html, body
     }
 #header-nav
     {
-        margin-left:20px;
+        margin-left:10px;
 		margin-top:50px;
         font-size:14px;
         border-bottom: 3px solid #f7f7f7;
@@ -70,14 +70,14 @@ html, body
     }
     #header-nav li
     {
-        padding: 0px 30px;
+        padding: 0px 15px;
     }
     
 
 
 	#header-nav a:hover
 	{
-        color: #CCCCCC;
+        color: rgb(150, 150, 150);
         transition-duration: 0.2s;
         text-decoration: none;
        
@@ -96,6 +96,13 @@ html, body
         padding-left: 5%;
         font-size:20px;
     }
+    #login_home
+    {
+        margin-top: 20px;
+		padding-left: 75px;
+        font-size:30px;
+       
+    }
     
     .btn {
         width:150px;
@@ -108,7 +115,6 @@ html, body
         font-weight: lighter;
         padding: 14px 0;
         text-transform: uppercase;
-        border-color: #59B2E6;
         transition-duration: 0.2s;
 
     }
@@ -139,11 +145,17 @@ html, body
         padding: 14px 0;
         text-transform: uppercase;
         width: 220px;
+        margin-top:15px;
     }
-    .btn2 a:hover{
-        color: rgb(190, 190, 190);
+    .btn2:hover{
+        color: rgb(210, 210, 210);
         text-decoration: none;
         transition-duration: 0.2s;
+    }
+    .btn2 a:hover{
+        color: rgb(210, 210, 210);
+        text-decoration: none;
+        transition-duration: 0.3s;
     }
     .btn3 {
         border-radius: 5px;
@@ -158,24 +170,27 @@ html, body
         width: 220px;
         margin-left: 65px;
         display: inline-block;
+        margin-top:10px;
     }
     .btn3 a:hover{
-        color: rgb(190, 190, 190);
+        color: rgb(210, 210, 210);
         text-decoration: none;
-        transition-duration: 0.2s;
+        transition-duration: 0.3s;
     }
     .btn4 {
-        border-radius: 10px;
+        border-radius: 5px;
         background-color: #7DA3A1 ;
         outline: none;
         color: #fff;
-        font-size: 15px;
+        font-size: 14px;
         height: auto;
         font-weight: lighter;
         padding: 2px 0;
-        width: 75px;
-        margin-left: 10px;
+        width: 70px;
+        /*margin-left: 10px;*/
         display: inline-block;
+        text-align: center;
+       /* margin-top:15px;*/
     }
     .btn4 a:hover{
         color: rgb(190, 190, 190);
@@ -234,6 +249,35 @@ html, body
 		border-width: thin;
 
     }
+    .tbl_claimDetail
+    {
+        margin-left: 0px;
+    }
+    .tbl_claimDetail td
+    {
+        padding:10px;
+		font-size:14px;
+		border: 1px solid #ddd;
+		border-width: thin;
+    }
+    .tbl_openclaims
+    {
+        margin-left: -30px;
+
+    }
+    .tbl_openclaims tr
+    {
+        line-height: 10px; 
+      
+    }
+    .tbl_openclaims td
+    {
+        padding:10px;
+		font-size:14px;
+		border: 1px solid #ddd;
+        border-width: thin;
+      
+    }
 
     td
 	{
@@ -267,6 +311,24 @@ html, body
         border: none;  
        /*border: solid red 2px;*/
     }
+    #myDropdown
+    {
+        background-color:#f1f1f1;
+        color:rgb(41, 41, 41);
+        font-size:14px;
+        margin-left:40px;
+        font-family: 'Lato',Arial, Helvetica, sans-serif;  
+       
+    }
+    td {
+        width: auto;
+    }
+    
+    td.min {
+        width: 1%;
+        white-space: nowrap;
+    }
+   
     
 	
 	
