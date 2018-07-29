@@ -19,9 +19,10 @@
         <div id="content">
 
         <div id="innerContainer">
+       
+       <?php
 
-        <?php   
-                    $server="localhost";
+          $server="localhost";
                     $dbuser="root";
                     $password="";
                     $link=mysqli_connect($server,$dbuser,$password);
@@ -30,11 +31,8 @@
                     $claimID = $_GET['claimID'];
 
                     $sql="SELECT * FROM claimheader WHERE claimID = $claimID ";
-                    $sql2="SELECT * FROM claimdetail WHERE claimID = $claimID ";
-
+                  
                     $result=mysqli_query($link,$sql);
-                    $result2=mysqli_query($link,$sql2);
-
 
                     $row=mysqli_fetch_array($result);
                     
@@ -94,11 +92,11 @@
                     <tr>
                     <th>Submitted</th>
                     <th>Status</th>
-                    <th style="color:#c2c944;">Processed</th>
-                    <th style="color:#c2c944;">Paid</th>
-                    <th style="color:#c2c944;">Paid Amt</th>
-                    <th style="color:#c2c944;">Check Nbr</th>
-                    <th style="color:#c2c944;">Insurer Comments</th>
+                    <th>Processed</th>
+                    <th>Paid</th>
+                    <th>Paid Amt</th>
+                    <th>Check Nbr</th>
+                    <th>Insurer Comments</th>
                     </tr>
                     <tr>
                     <td><?php echo $submittedDate ?: '-'; ?></td>
@@ -119,7 +117,7 @@
                     {
                         echo "<div class='detailTablePart1'>";
                         echo "<br><div id='claimHeader' style='margin-left:0px'><h4>CLAIM DETAIL</h4></div>";
-                        echo "<table class='tbl_claimDetail' min-width='70%' margin-top='25px' cellspacing='0'>";
+                        echo "<table class='tbl_claimDetail' width='70%' margin-top='25px' cellspacing='0'>";
 
                         echo "<tr >
                         <th>Claim ID</th>
@@ -129,10 +127,10 @@
                         <th>Mod1</th>
                         <th>Mod2</th>
                         <th>Billed Amt</th>
-                        <th style='color:#c2c944;'>Insurer Adj Amt</th>
-                        <th style='color:#c2c944;'>Insurer Ad Code</th>
-                        <th style='color:#c2c944;'>Insurer Adj Comment</th>
-                        <th style='color:#c2c944;'>Insurer Paid Amt </th>
+                        <th>Insurer Adj Amt</th>
+                        <th>Insurer Ad Code</th>
+                        <th>Insurer Adj Comment</th>
+                        <th>Insurer Paid Amt </th>
                         </tr>";
 
                         while($row2=mysqli_fetch_array($result2))
@@ -150,8 +148,8 @@
 
                             echo"<tr>
                             <td>$claimID</td>
-                            <td>$detailLine</td>
                             <td>$detailDOS</td>
+                            <td>$detailLine</td>
                             <td>$procCode</td>"?>
                             <td><?php echo $procMod1?: '-'; ?></td>
                             <td><?php echo $procMod2?: '-'; ?></td>
@@ -175,7 +173,6 @@
                     mysqli_close($link);
                    
                     ?>
-
             </div>
 
         </div> <!--Content Div-->
