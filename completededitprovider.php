@@ -49,12 +49,11 @@
                         }
                         else
                         {
-                            echo "Provider Updated";
-                            header("Location: http://localhost/claimBiller/admin.php");
+                            
+                            header("Location: http://localhost/claimBiller/providerupdatedsuccess.php");
                             
                             exit;
                         }
-                        echo "Provider Updated";
                         
                         mysqli_close($link);
 
