@@ -1,10 +1,8 @@
 {
+  "git.enabled": false,
   "ExpandedNodes": [
     "",
     "\\Includes"
   ],
-// Is git enabled
-"git.enabled": false,
-  "SelectedNode": "\\Includes\\header.html",
   "PreviewInSolutionExplorer": false
 }
