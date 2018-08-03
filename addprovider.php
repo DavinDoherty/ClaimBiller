@@ -20,22 +20,22 @@
 		
 		<div id="addprovider" >
             <form method="post" action="processaddprovider.php" class="inputForm">
-                <label for="providerID">Provider ID</label>
-                <input type = "text" id="providerID" name="providerID" autofocus >
-                <label for="providerFName">Provider First Name</label>
-                <input type = "text" id="providerFName" name="providerFName" >
-                <label for="providerLName">Provider Last Name</label>
-                <input type = "text" id="providerLName" name="providerLName" >
-                <label for="providerEff">Provider Effective Date (YYYY-MM-DD)</label>
-                <input type = "text" id="providerEff" name="providerEff" >
-                <label for="providerTerm">Provider Termination Date (YYYY-MM-DD)</label>
-                <input type = "text" id="providerTerm" name="providerTerm" >
-                <label for="ssn">Social Security Number</label>
-                <input type = "text" id="ssn" name="ssn" >
-                <label for="contactNbr">Contact Number</label>
-                <input type = "text" id="contactNbr" name="contactNbr" >
-                <label for="providerEmail">Provider Email</label>
-                <input type = "text" id="providerEmail" name="providerEmail" >
+                <label for="providerID">Provider ID</label><br>
+                <input type = "text" id="providerID" name="providerID" autofocus ><br>
+                <label for="providerFName">Provider First Name</label><br>
+                <input type = "text" id="providerFName" name="providerFName" ><br>
+                <label for="providerLName">Provider Last Name</label><br>
+                <input type = "text" id="providerLName" name="providerLName" ><br>
+                <label for="providerEff">Provider Effective Date (YYYY-MM-DD)</label><br>
+                <input type = "text" id="providerEff" name="providerEff" ><br>
+                <label for="providerTerm">Provider Termination Date (YYYY-MM-DD)</label><br>
+                <input type = "text" id="providerTerm" name="providerTerm" ><br>
+                <label for="ssn">Social Security Number</label><br>
+                <input type = "text" id="ssn" name="ssn" ><br>
+                <label for="contactNbr">Contact Number</label><br>
+                <input type = "text" id="contactNbr" name="contactNbr" ><br>
+                <label for="providerEmail">Provider Email</label><br>
+                <input type = "text" id="providerEmail" name="providerEmail" ><br>
                 <br><br>
                 <input type="submit" name="submit" value="Add Provider" class="btn" >
 

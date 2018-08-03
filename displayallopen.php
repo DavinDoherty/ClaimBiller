@@ -27,7 +27,7 @@
                     $link=mysqli_connect($server,$dbuser,$password);
                     mysqli_select_db($link,"claimbiller");	
                     
-                    $sql="SELECT * FROM claimheader ORDER BY submittedDate ";
+                    $sql="SELECT * FROM claimheader WHERE complete = 'N' ORDER BY submittedDate ";
 
                     echo "<div style='margin-left:-30px'>ALL OPEN CLAIMS</div>";
 
@@ -66,14 +66,14 @@
                             $insurerComments=$row["insurerComments"];
 
                             echo "<tr >
-                            <td style=align='center'><a href='viewclaimdetail.php?claimID=$claimID'>Archive</a></td>
+                            <td style=align='center'><a href='archiveclaim.php?claimID=$claimID'>Archive</a></td>
                             <td style='width:8%;' align='center'>$claimID</td>
                             <td style='min-width:8%;'>$memberID</td>
                             <td style='min-width:8%;'>$providerID</td>
                             <td style='min-width:12%;'>$fromDOS</td>
                             <td style='min-width:12%;'>$toDOS</td>
                             <td style='min-width:12%;'>$submittedDate</td>" ?>
-                            <td <?php if($claimStatus == 'Paid' ) {echo('style="color:red"'); } elseif($claimStatus == 'Denied') {echo('style="color:green"'); } else { echo('style="color:grey"'); } ?>><?php echo $claimStatus ?></td>
+                            <td <?php if($claimStatus == 'Denied' ) {echo('style="color:red"'); } elseif($claimStatus == 'Paid') {echo('style="color:green"'); } else { echo('style="color:grey"'); } ?>><?php echo $claimStatus ?></td>
                             <td><?php echo $processedDate ?: '-'; ?></td>
                             <td><?php echo $claimPaidAmt ?: '-'; ?></td>
                             <td><?php echo $insurerComments ?: '-'; ?></td>
