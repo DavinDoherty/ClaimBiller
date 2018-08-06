@@ -21,17 +21,17 @@
             
                 <div id="login_home">
 
-                    <font color="red">PLEASE LOGIN:</font><br><br>
+                    <font color="red">PLEASE LOGIN:</font><br>
                     <!-- <font size=5 color="red">REGISTERED USERS ONLY</font><br> class="w3-container"  -->
                         
-                        <form action="login_action.php" method="POST" class="form-group" style="display: block;">
+                        <form action="login_action.php" method="POST" class="form-group" style="display: block; margin-top: 15px;">
                         <table>
 
                         <tr>
-                            <td id="username"> <input class="w3-input" type="text" placeholder="username" value="" name="username" required="required" autofocus> <br></td>
+                            <td id="username"> <input class="w3-input" type="text" placeholder="username" value="" name="username" required="required" autofocus></td>
                         </tr>
                         <tr>
-                            <td id="password"><input class="w3-input" type="password" placeholder="password" value="" name="password" required="required"><br></td>
+                            <td id="password"><input class="w3-input" type="password" placeholder="password" value="" name="password" required="required"></td>
 
                         </tr>
                         <tr>
