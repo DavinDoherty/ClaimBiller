@@ -29,7 +29,7 @@
                     
                     $sql="SELECT * FROM claimheader WHERE complete = 'N' ORDER BY submittedDate ";
 
-                    echo "<div style='margin-left:-30px'>ALL OPEN CLAIMS</div>";
+                    echo "<div style='margin-left:-30px'>ALL OPEN CLAIMS</div><br>";
 
                     $result=mysqli_query($link,$sql);
                     

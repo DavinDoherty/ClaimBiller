@@ -35,9 +35,7 @@
                 echo "<button class='btn2'><a href='manageuser.php' style='text-decoration: none;'>MANAGE USER</a></button><br>";
             
             ?>
-		
-
-        
+		        
         </div> <!--Content Div-->
 
          <div id="footer">

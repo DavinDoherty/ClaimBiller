@@ -29,7 +29,7 @@
                     
                     $sql="SELECT * FROM claimheader WHERE complete = 'N' AND claimStatus = 'Paid' ORDER BY submittedDate ";
 
-                    echo "<div style='margin-left:-30px'>ALL PAID CLAIMS</div>";
+                    echo "<div style='margin-left:-30px'>ALL PAID CLAIMS</div><br>";
 
                     $result=mysqli_query($link,$sql);
                     

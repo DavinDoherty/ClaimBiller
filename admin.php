@@ -58,18 +58,7 @@ function toggle_visibility()
 }
  </script>
 
-<!--
-        <script>
-            function provFunction() {
-                var x = document.getElementById("manageProvDiv");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-            }
-        </script>
-        -->
+
     <script src="js/jquery.slim.min.js">
     <script src="js/popper.min.js">
     <script src="js/bootstrap.min.js">

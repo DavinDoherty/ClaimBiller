@@ -29,7 +29,7 @@
                     
                     $sql="SELECT * FROM claimheader WHERE complete = 'N' AND claimStatus = 'Denied' ORDER BY submittedDate ";
 
-                    echo "<div style='margin-left:-30px'>ALL DENIED CLAIMS</div>";
+                    echo "<div style='margin-left:-30px'>ALL DENIED CLAIMS</div><br>";
 
                     $result=mysqli_query($link,$sql);
                     
