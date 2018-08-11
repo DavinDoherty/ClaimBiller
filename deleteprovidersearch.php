@@ -15,9 +15,16 @@
 
     <div class="container" id="container">
 
-            <?php include("includes/header.html");?>
+            <?php include("includes/header.php");?>
             <?php include("includes/nav.html");?><br>
 
+            <?php
+            session_start();
+                            if(!isset($_SESSION['username']))
+                            {
+                                header("Location:index.php");
+                            }
+            ?>
         <div id="innerContainer">
                
                 <div><font style="font-size:150%">Search For Provider To Delete</font><br>

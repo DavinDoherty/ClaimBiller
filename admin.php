@@ -14,12 +14,18 @@
 <body>
 
     <div class="container" id="container">
-        <?php include("includes/header.html");?>
+        <?php include("includes/header.php");?>
         <?php include("includes/nav.html");?>
         <div id="content">
                 
             <?php
-                        
+
+                session_start();
+                if(!isset($_SESSION['username']))
+                {
+                    header("Location:index.php");
+                }
+                                    
                 echo "please choose from one of the following options: &nbsp;&nbsp;<br><br>";
                 echo "<button class='btn2' onclick='toggle_visibility()'>MANAGE PROVIDER</button><br>";
                 echo "<div id = manageProvDiv >

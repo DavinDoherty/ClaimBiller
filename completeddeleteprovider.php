@@ -17,6 +17,13 @@
     
         <?php include("includes/header.html");?>
             <?php include("includes/nav.html");?>
+            <?php
+               session_start();
+                if(!isset($_SESSION['username']))
+                {
+                    header("Location:index.php");
+                }
+                ?>
             
             <div id="innerContainer">
             <br>

@@ -17,7 +17,14 @@
     <?php include("includes/header.html");?>
         <?php include("includes/nav.html");?><br>
         <div style="margin-left:50px"><h4>ADD NEW PROVIDER</h4></div><br>
-		
+        
+      <?php  session_start();
+                    if(!isset($_SESSION['username']))
+                    {
+                        header("Location:index.php");
+                    }
+        ?>
+        
 		<div id="addprovider" >
             <form method="post" action="processaddprovider.php" class="inputForm">
                 <label for="providerID">Provider ID</label><br>

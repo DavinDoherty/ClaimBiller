@@ -14,17 +14,34 @@
 <body>
 
     <div class="container" id="container">
-        <?php include("includes/header.html");?>
-        <?php include("includes/nav.html");?>
+    
+    <?php include("includes/headerIndex.php");?>
         
             <div id="content">
+
+                    <?php
+                        if(empty($_SESSION))
+                        session_start();
+                        if(isset($_SESSION['errors'])) 
+                        {
+                            echo "<div class='form-errors'>";
+                            foreach($_SESSION['errors'] as $error)
+                            {
+                                echo "<p>";
+                                echo $error;
+                                echo"</p>";
+                            }
+                            echo "</div>";
+                        }
+                        unset($_SESSION['errors']);
+                    ?>
             
                 <div id="login_home">
 
                     <font color="red">PLEASE LOGIN:</font><br>
                     <!-- <font size=5 color="red">REGISTERED USERS ONLY</font><br> class="w3-container"  -->
                         
-                        <form action="login_action.php" method="POST" class="form-group" style="display: block; margin-top: 15px;">
+                        <form action="loginaction.php" method="POST" class="form-group" style="display: block; margin-top: 15px;">
                         <table>
 
                         <tr>

@@ -22,6 +22,12 @@
        
        <?php
 
+            session_start();
+                if(!isset($_SESSION['username']))
+                {
+                    header("Location:index.php");
+                }
+                
           $server="localhost";
                     $dbuser="root";
                     $password="";
@@ -30,7 +36,7 @@
                     
                     $claimID = $_GET['claimID'];
 
-                    $sql="UPDATE claimheader SET complete='Y' 
+                    $sql="UPDATE claim_header SET complete='Y' 
                     WHERE claimID = $claimID";
                     
                     $retval = mysqli_query($link,$sql);

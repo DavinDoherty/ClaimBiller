@@ -14,22 +14,32 @@
 <body>
 
     <div class="container" id="container">
-        <?php include("includes/header.html");?>
+        <?php include("includes/header.php");?>
         <?php include("includes/nav.html");?>
         <div id="content">
 
         <div id="innerContainer">
 
         <?php   
+
+                    session_start();
+                    if(!isset($_SESSION['username']))
+                    {
+                        header("Location:index.php");
+                    }
+                    
+                    
                     $server="localhost";
                     $dbuser="root";
                     $password="";
                     $link=mysqli_connect($server,$dbuser,$password);
                     mysqli_select_db($link,"claimbiller");	
-                    
-                    $sql="SELECT * FROM claimheader WHERE complete = 'N' ORDER BY submittedDate ";
 
-                    echo "<div style='margin-left:-30px'>ALL OPEN CLAIMS</div><br>";
+                    $claimPaidAmt = 0;
+                    
+                    $sql="SELECT * FROM claim_header WHERE complete = 'N' ORDER BY submittedDate ";
+
+                    echo "<div style='margin-left:-30px; margin-top: 10px;' >ALL OPEN CLAIMS</div><br>";
 
                     $result=mysqli_query($link,$sql);
                     
@@ -62,7 +72,10 @@
                             $submittedDate=$row["submittedDate"];
                             $claimStatus=$row["claimStatus"];
                             $processedDate=$row["processedDate"];
-                            $claimPaidAmt=number_format($row["claimPaidAmt"]);
+                            if($claimPaidAmt > 0)
+                            {
+                                $claimPaidAmt=number_format($row["claimPaidAmt"]);
+                            }
                             $insurerComments=$row["insurerComments"];
 
                             echo "<tr >

@@ -14,20 +14,27 @@
 <body>
 
     <div class="container" id="container">
-        <?php include("includes/header.html");?>
+        <?php include("includes/header.php");?>
         <?php include("includes/nav.html");?>
         <div id="content">
 
         <div id="innerContainer">
 
         <?php   
+
+                    session_start();
+                    if(!isset($_SESSION['username']))
+                    {
+                        header("Location:index.php");
+                    }
+                    
                     $server="localhost";
                     $dbuser="root";
                     $password="";
                     $link=mysqli_connect($server,$dbuser,$password);
                     mysqli_select_db($link,"claimbiller");	
                     
-                    $sql="SELECT * FROM claimheader WHERE complete = 'N' AND claimStatus = 'Paid' ORDER BY submittedDate ";
+                    $sql="SELECT * FROM claim_header WHERE complete = 'N' AND claimStatus = 'Paid' ORDER BY submittedDate ";
 
                     echo "<div style='margin-left:-30px'>ALL PAID CLAIMS</div><br>";
 

@@ -14,30 +14,37 @@
 <body>
 
     <div class="container" id="container">
-        <?php include("includes/header.html");?>
+        <?php include("includes/header.php");?>
         <?php include("includes/nav.html");?>
         <div id="content">
 
         <div id="innerContainer">
 
         <?php   
-                    $server="localhost";
+                            session_start();
+                            if(!isset($_SESSION['username']))
+                            {
+                                header("Location:index.php");
+                            }
+                    
+                            $server="localhost";
                     $dbuser="root";
                     $password="";
                     $link=mysqli_connect($server,$dbuser,$password);
                     mysqli_select_db($link,"claimbiller");	
                     
                     $claimID = $_GET['claimID'];
+                    $claimPaidAmt = 0;
 
-                    $sql="SELECT * FROM claimheader WHERE claimID = $claimID ";
-                    $sql2="SELECT * FROM claimdetail WHERE claimID = $claimID ";
+                    $sql="SELECT * FROM claim_header WHERE claimID = $claimID ";
+                    $sql2="SELECT * FROM claim_detail WHERE claimRef = $claimID ";
+                    /*$sqlAmtBilled="SELECT SUM(amtBilled) AS TotalBilled FROM claim_detail WHERE claimRef = $claimID ";*/
 
                     $result=mysqli_query($link,$sql);
                     $result2=mysqli_query($link,$sql2);
 
-
                     $row=mysqli_fetch_array($result);
-                    
+
                     echo "<br><div id='claimHeader' style='margin-left:0px'><h4>CLAIM HEADER</h4></div>";
 
                     $result=mysqli_query($link,$sql);
@@ -57,7 +64,11 @@
                     $claimStatus=$row["claimStatus"];
                     $processedDate=$row["processedDate"];
                     $claimPaidDate=$row["claimPaidDate"];
-                    $claimPaidAmt=$row["claimPaidAmt"];
+                    
+                    if($claimPaidAmt > 0)
+                    {
+                        $claimPaidAmt=$row["claimPaidAmt"];
+                    }
                     $checkNbr=$row["checkNbr"];
                     $insurerComments=$row["insurerComments"];
 
@@ -174,8 +185,9 @@
 
                     mysqli_close($link);
                    
+                    
                     ?>
-
+                    <br><button onclick="history.go(-2);">Back </button>
             </div>
 
         </div> <!--Content Div-->
