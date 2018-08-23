@@ -22,13 +22,17 @@
                    <?php
     
     session_start();
-		if(isset($_SESSION['username']))
+
+   
+        if(isset($_SESSION['username']))
 		{
 			$username=$_SESSION['username'];
 			echo "<h3>Welcome ".$username."!</h3>";
-		
-					
-		}
+        }
+        else
+        {
+            header("Location:index.php");
+        }
 	?>
                         
 

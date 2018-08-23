@@ -25,20 +25,36 @@
                 {
                     header("Location:index.php");
                 }
-                                    
-                echo "please choose from one of the following options: &nbsp;&nbsp;<br><br>";
+
+                $username = $_SESSION['username'];
+
+                $server="localhost";
+                    $dbuser="root";
+                    $password="";
+                    $link=mysqli_connect($server,$dbuser,$password);
+                    mysqli_select_db($link,"claimbiller");	
+                    
+                    $sql="SELECT manager FROM users WHERE userID = '$username'";
+
+                    $result=mysqli_query($link,$sql);
+                   
+                    $row=mysqli_fetch_array($result);
+                   
+                    $manager=$row["manager"];
+
+                echo "Please choose from one of the following options: &nbsp;&nbsp;<br><br>";
                 echo "<button class='btn2' onclick='toggle_visibility()'>MANAGE PROVIDER</button><br>";
                 echo "<div id = manageProvDiv >
-                <button class='btn3' style='width:150px'><a href='addprovider.php'>ADD PROVIDER</a></button><br>
-             
-                <button class='btn3' style='width:150px'><a href='editprovider.php'>EDIT PROVIDER</a></button><br>
-            
-                <button class='btn3' style='width:150px'><a href='deleteprovidersearch.php'>DELETE PROVIDER</a></button><br>
-            
-                </div>";
+                        <button class='btn3' style='width:150px'><a href='addprovider.php'>ADD PROVIDER</a></button><br>
+                        <button class='btn3' style='width:150px'><a href='editprovider.php'>EDIT PROVIDER</a></button><br>
+                        <button class='btn3' style='width:150px'><a href='deleteprovidersearch.php'>DELETE PROVIDER</a></button><br>
+                      </div>";
                 echo "<button class='btn2'><a href='managemember.php'>MANAGE MEMBER</a></button><br>";
                 echo "<button class='btn2'><a href='manageinsurer.php' style='text-decoration: none;'>MANAGE INSURER</a></button><br>";
-                echo "<button class='btn2'><a href='manageuser.php' style='text-decoration: none;'>MANAGE USER</a></button><br>";
+                if($manager == 'Y')
+                {
+                    echo "<button class='btn2'><a href='manageuser.php' style='text-decoration: none;'>MANAGE USER</a></button><br>";
+                }
             
             ?>
 		

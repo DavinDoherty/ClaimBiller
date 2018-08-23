@@ -41,9 +41,11 @@ $sql="SELECT * FROM claim_header WHERE memberID = $memberID ORDER BY submittedDa
 
 echo "<div style='margin-left:-30px'>MEMBER'S CLAIM HISTORY RESULTS:</div><br>";
 
+
 $claimPaidAmt=0;
 
 $result=mysqli_query($link,$sql);
+
 
 if(mysqli_num_rows($result) > 0)
 {
@@ -57,8 +59,7 @@ if(mysqli_num_rows($result) > 0)
     <th>To DOS</th>
     <th>Submitted Date</th>
     <th>Claim Status</th>
-    <th style='color:#c2c944';>Processed Date </th>
-    <th style='color:#c2c944'>Claim Paid Amt</th>
+    <th style='color:#c2c944';>Processed Date</th>
     <th style='color:#c2c944'>Insurer Comments</th>
     <th style='text-align:center;'>Details</th>
     </tr>";
@@ -88,10 +89,9 @@ if(mysqli_num_rows($result) > 0)
         <td style='min-width:12%;'>$submittedDate</td>" ?>
         <td <?php if($claimStatus == 'Denied' ) {echo('style="color:red"'); } elseif($claimStatus == 'Paid') {echo('style="color:green"'); } else { echo('style="color:grey"'); } ?>><?php echo $claimStatus ?></td>
         <td><?php echo $processedDate ?: '-'; ?></td>
-        <td><?php echo $claimPaidAmt ?: '-'; ?></td>
         <td><?php echo $insurerComments ?: '-'; ?></td>
        <?php echo "
-        <td style='min-width:40px;'><button class='btn4'><a href='viewclaimdetail.php?claimID=$claimID'>Detail</a></button></td>
+        <td style='min-width:40px;'><button class='btn_nav2'><a href='viewclaimdetail.php?claimID=$claimID&page=queryresults'>Detail</a></button></td>
         
         </tr>";
        
@@ -106,8 +106,9 @@ else
 mysqli_close($link);
 
 ?>
-<br><button onclick="history.go(-2);" style="margin-left:-30px;">Back </button>
+<br><button class="btn_nav2" onclick="history.go(-1);" style="margin-left:-30px;">Back </button>
 
+</div>
         </div> <!--Content Div-->
 
          <div id="footer">

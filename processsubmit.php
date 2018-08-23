@@ -14,8 +14,15 @@
 </head>
 <body>
 
+                <?php  session_start();
+                    if(!isset($_SESSION['username']))
+                    {
+                        header("Location:index.php");
+                    }
+                ?>
+
     <div class="container" id="container">
-        <?php include("includes/header.html");?>
+        <?php include("includes/header.php");?>
         <?php include("includes/nav.html");?>
         <div id="content">
 
@@ -157,32 +164,29 @@
                             {
                                 $newClaimID = $row[0];
                                 $newClaimID++;
-
                             }
                             else //If null - assign new claim number (001)
                             {
                                 $clmNbr = $memberID . str_pad($clmNbr, 3, '0', STR_PAD_LEFT); 
                                 $newClaimID = $clmNbr;
                             }
-                           
                         }
                     }
                     else //assign new claim number (member number + 001)
                     {
-
                         $clmNbr = $memberID . str_pad($clmNbr, 3, '0', STR_PAD_LEFT); 
                         $newClaimID = $clmNbr;
                     }
 
-                    $sql_insert="INSERT INTO claim_header(claimID, memberID, fromDOS, toDOS, diagnosis1, diagnosis2, diagnosis3, diagnosis4, diagnosis5, claimStatus, complete) 
-                    VALUES ('$newClaimID', '$memberID', '$fromDOS', '$toDOS', '$diagnosis1', '$diagnosis2', '$diagnosis3','$diagnosis4','$diagnosis5', 'submitted', 'N')"; 
+                    $sql_insert="INSERT INTO claim_header(claimID, memberID, providerID, fromDOS, toDOS, diagnosis1, diagnosis2, diagnosis3, diagnosis4, diagnosis5, claimStatus, complete) 
+                    VALUES ('$newClaimID', '$memberID', '$providerID', '$fromDOS', '$toDOS', '$diagnosis1', '$diagnosis2', '$diagnosis3','$diagnosis4','$diagnosis5', 'submitted', 'N')"; 
                     
                     if(mysqli_query($link, $sql_insert)) 
                     {
-                        
+                        echo "<h3>Claim Submitted</h3>";
                     }
                     else {
-                        echo "AN ERROR OCCURED ON Line3, PLEASE TRY AGAIN";
+                        echo "AN ERROR OCCURED, PLEASE TRY AGAIN";
                     }
                                      
                     //Combine claim number and detail line number to create unique PK for Detail table.
@@ -191,6 +195,13 @@
                     $sql_insert="INSERT INTO claim_detail(detailClaimID, claimRef, detailLine, detailDOS, procCode, procMod1, procMod2, amtBilled ) 
                     VALUES ('$newClaimDetailID', '$newClaimID', '$detailLine_1','$detailDOS_1', '$procCode_1', '$procMod1_1','$procMod2_1', $amtBilled_1)";
                      
+                     if(mysqli_query($link, $sql_insert)) 
+                     {
+                         
+                     }
+                     else {
+                         echo "AN ERROR OCCURED, PLEASE TRY AGAIN";
+                     }
                    
                     if($amtBilled_2 > 0)
                     {
@@ -198,7 +209,13 @@
 
                         $sql_insert="INSERT INTO claim_detail(detailClaimId, claimRef, detailLine, detailDOS, procCode, procMod1, procMod2, amtBilled ) 
                         VALUES ('$newDetailClaimID', '$newClaimID','$detailLine_2','$detailDOS_2', '$procCode_2', '$procMod1_2','$procMod2_2', $amtBilled_2)";
-
+                        if(mysqli_query($link, $sql_insert)) 
+                        {
+                            
+                        }
+                        else {
+                            echo "AN ERROR OCCURED, PLEASE TRY AGAIN";
+                        }
                     }
                    
                     if($amtBilled_3 > 0)
@@ -208,6 +225,14 @@
 
                         $sql_insert="INSERT INTO claim_detail(detailClaimId, claimRef, detailLine, detailDOS, procCode, procMod1, procMod2, amtBilled ) 
                         VALUES ('$newDetailClaimID', '$newClaimID','$detailLine_3','$detailDOS_3', '$procCode_3', '$procMod1_3','$procMod2_3', $amtBilled_3)";
+                         
+                         if(mysqli_query($link, $sql_insert)) 
+                         {
+                             
+                         }
+                         else {
+                             echo "AN ERROR OCCURED, PLEASE TRY AGAIN";
+                         }
                            
                     }
                     if($amtBilled_4 > 0)
@@ -217,6 +242,14 @@
 
                         $sql_insert="INSERT INTO claim_detail(detailClaimId, claimRef, detailLine, detailDOS, procCode, procMod1, procMod2, amtBilled ) 
                         VALUES ('$newDetailClaimID', '$newClaimID','$detailLine_4','$detailDOS_4', '$procCode_4', '$procMod1_4','$procMod2_4', $amtBilled_4)";
+
+                            if(mysqli_query($link, $sql_insert)) 
+                            {
+                                
+                            }
+                            else {
+                                echo "AN ERROR OCCURED, PLEASE TRY AGAIN";
+                            }
                            
                     }
                     if($amtBilled_5 > 0)
@@ -226,6 +259,14 @@
 
                         $sql_insert="INSERT INTO claim_detail(detailClaimId, claimRef, detailLine, detailDOS, procCode, procMod1, procMod2, amtBilled ) 
                         VALUES ('$newDetailClaimID', '$newClaimID','$detailLine_5','$detailDOS_5', '$procCode_5', '$procMod1_5','$procMod2_5', $amtBilled_5)";
+
+                            if(mysqli_query($link, $sql_insert)) 
+                            {
+                                
+                            }
+                            else {
+                                echo "AN ERROR OCCURED, PLEASE TRY AGAIN";
+                            }
                            
                     }
                     if($amtBilled_6 > 0)
@@ -235,6 +276,14 @@
 
                         $sql_insert="INSERT INTO claim_detail(detailClaimId, claimRef, detailLine, detailDOS, procCode, procMod1, procMod2, amtBilled ) 
                         VALUES ('$newDetailClaimID', '$newClaimID','$detailLine_6','$detailDOS_6', '$procCode_6', '$procMod1_6','$procMod2_6', $amtBilled_6)";
+                         
+                         if(mysqli_query($link, $sql_insert)) 
+                         {
+                             
+                         }
+                         else {
+                             echo "AN ERROR OCCURED, PLEASE TRY AGAIN";
+                         }
                            
                     }
                     if($amtBilled_7 > 0)
@@ -244,6 +293,14 @@
 
                         $sql_insert="INSERT INTO claim_detail(detailClaimId, claimRef, detailLine, detailDOS, procCode, procMod1, procMod2, amtBilled ) 
                         VALUES ('$newDetailClaimID', '$newClaimID','$detailLine_7','$detailDOS_7', '$procCode_7', '$procMod1_7','$procMod2_7', $amtBilled_7)";
+
+                        if(mysqli_query($link, $sql_insert)) 
+                        {
+                            
+                        }
+                        else {
+                            echo "AN ERROR OCCURED, PLEASE TRY AGAIN";
+                        }
                            
                     }
                     if($amtBilled_8 > 0)
@@ -253,6 +310,14 @@
 
                         $sql_insert="INSERT INTO claim_detail(detailClaimId, claimRef, detailLine, detailDOS, procCode, procMod1, procMod2, amtBilled ) 
                         VALUES ('$newDetailClaimID', '$newClaimID','$detailLine_8','$detailDOS_8', '$procCode_8', '$procMod1_8','$procMod2_8', $amtBilled_8)";
+                         
+                         if(mysqli_query($link, $sql_insert)) 
+                         {
+                             
+                         }
+                         else {
+                             echo "AN ERROR OCCURED, PLEASE TRY AGAIN";
+                         }
                            
                     }
                     if($amtBilled_9 > 0)
@@ -262,6 +327,14 @@
 
                         $sql_insert="INSERT INTO claim_detail(detailClaimId, claimRef, detailLine, detailDOS, procCode, procMod1, procMod2, amtBilled ) 
                         VALUES ('$newDetailClaimID', '$newClaimID','$detailLine_9','$detailDOS_9', '$procCode_9', '$procMod1_9','$procMod2_9', $amtBilled_9)";
+
+                            if(mysqli_query($link, $sql_insert)) 
+                            {
+                                
+                            }
+                            else {
+                                echo "AN ERROR OCCURED, PLEASE TRY AGAIN";
+                            }
                            
                     }
                     if($amtBilled_10 > 0)
@@ -271,16 +344,18 @@
 
                         $sql_insert="INSERT INTO claim_detail(detailClaimId, claimRef, detailLine, detailDOS, procCode, procMod1, procMod2, amtBilled ) 
                         VALUES ('$newDetailClaimID', '$newClaimID','$detailLine_10','$detailDOS_10', '$procCode_10', '$procMod1_10','$procMod2_10', $amtBilled_10)";
+
+                        if(mysqli_query($link, $sql_insert)) 
+                        {
+                            
+                        }
+                        else {
+                            echo "AN ERROR OCCURED, PLEASE TRY AGAIN";
+                        }
                            
                     }
 
-                    if(mysqli_query($link, $sql_insert)) 
-                    {
-                        echo "<h3>Claim Submitted</h3>";
-                    }
-                    else {
-                        echo "AN ERROR OCCURED, PLEASE TRY AGAIN";
-                    }
+                   
                     mysqli_close($link);
                     ?>
 

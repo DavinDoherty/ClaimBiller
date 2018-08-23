@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/page_text.css">
     <link rel="stylesheet" href="css/forms.css">
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
 </head>
 <body>
 
@@ -17,6 +17,8 @@
     
         <?php include("includes/header.php");?>
             <?php include("includes/nav.html");?>
+
+            <div id="content"> 
             
             <div id="innerContainer">
             <br>
@@ -29,6 +31,7 @@
                     {
                         header("Location:index.php");
                     }
+
                     $server="localhost";
                     $dbuser="root";
                     $password="";
@@ -49,25 +52,21 @@
                     }
                     else
                     {
-                        header("Location: http://localhost/claimbiller/admin.php");
+                        header("Location: http://localhost/claimbiller/providerdeletedsuccess.php");
                         exit;
                     }
                     mysqli_close($link);
                   
                     ?>
-                
-                
 
             </div>	
        
-               
-    </div>
-    <div id="footer">
+                </div>
+   
+                <div id="footer">
                     <?php include("includes/footer.html");?>
                 </div>
-    <script src="js/jquery.slim.min.js">
-    <script src="js/popper.min.js">
-    <script src="js/bootstrap.min.js">
+    </div>
 
 </body>
 </html>

@@ -15,11 +15,13 @@
 
     <div class="container" id="container">
     
-        <?php include("includes/header.html");?>
+        <?php include("includes/header.php");?>
             <?php include("includes/nav.html");?>
             
+            <div id="content">
+            
             <div id="innerContainer">
-            <br>
+          
             <div><h4>EDIT PROVIDER</h4></div>
 
                 <?php   
@@ -57,57 +59,53 @@
                 <table id="editProvDetails">
                  <tr>
                 <td width="100px"><label for="providerID">Provider ID</label></td>
-                <td width="1000px"><input type = "text" id="providerID" name="providerID"  value="<?php echo $providerID; ?>" autofocus ></td>
+                <td width="100px"><input type = "text" id="providerID" name="providerID"  value="<?php echo $providerID; ?>" autofocus ></td>
                 </tr>
                 <tr>
                 <td width="100px"><label for="providerFName">Provider First Name</label></td>
-                <td width="1000px"><input type = "text" id="providerFName" name="providerFName" value="<?php echo $providerFName; ?>" ></td>
+                <td width="100px"><input type = "text" id="providerFName" name="providerFName" value="<?php echo $providerFName; ?>" ></td>
                 </tr>
                 <tr>
                 <td width="100px"><label for="providerLName">Provider Last Name</label></td>
-                <td width="1000px"><input type = "text" id="providerLName" name="providerLName" value="<?php echo $providerLName; ?>" ></td>
+                <td width="100px"><input type = "text" id="providerLName" name="providerLName" value="<?php echo $providerLName; ?>" ></td>
                 </tr>
                 <tr>
                 <td width="100px"><label for="providerEff">Provider Effective Date</label></td>
-                <td width="1000px"><input type = "text" id="providerEff" name="providerEff" value="<?php echo $providerEff; ?>"></td>
+                <td width="100px"><input type = "text" id="providerEff" name="providerEff" value="<?php echo $providerEff; ?>"></td>
                 </tr>
                 <tr>
                 <td width="100px"><label for="providerTerm">Provider Termination Date</label></td>
-                <td width="1000px"><input type = "text" id="providerTerm" name="providerTerm" value="<?php echo $providerTerm; ?>"></td>
+                <td width="100px"><input type = "text" id="providerTerm" name="providerTerm" value="<?php echo $providerTerm; ?>"></td>
                 </tr>
                 <tr>
                 <td width="100px"><label for="ssn">Social Security Number</label></td>
-                <td width="1000px"><input type = "text" id="ssn" name="ssn" value="<?php echo $ssn; ?>"></td>
+                <td width="100px"><input type = "text" id="ssn" name="ssn" value="<?php echo $ssn; ?>"></td>
                 </tr>
                 <tr>
                 <td width="100px"><label for="contactNbr">Contact Number</label></td>
-                <td width="1000px"><input type = "text" id="contactNbr" name="contactNbr" value="<?php echo $contactNbr; ?>"></td>
+                <td width="100px"><input type = "text" id="contactNbr" name="contactNbr" value="<?php echo $contactNbr; ?>"></td>
                 </tr>
                 <tr>
                 <td width="100px"><label for="providerEmail">Provider Email</label></td>
-                <td width="1000px"><input type = "text" id="providerEmail" name="providerEmail" value="<?php echo $providerEmail; ?>"></td>
+                <td width="100px"><input type = "text" id="providerEmail" name="providerEmail" value="<?php echo $providerEmail; ?>"></td>
                 </tr>
                 <br><br>
                 <tr>
-                <td width="250px"><input type="submit" name="submit" value="SUBMIT" class="btn" ></td>
+                <td width="100px"><input type="submit" name="submit" value="SUBMIT" class="btn" ></td>
                 </tr>
                 </table>
                 </form>
 
 
-                        
-
      </div>	
-       
+</div>
                
     </div>
-    <div id="footer">
+                <div id="footer">
                     <?php include("includes/footer.html");?>
                 </div>
-    <script src="js/jquery.slim.min.js">
-    <script src="js/popper.min.js">
-    <script src="js/bootstrap.min.js">
 
+   
 </body>
 </html>
 

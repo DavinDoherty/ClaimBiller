@@ -13,17 +13,13 @@
 </head>
 <body>
 
-                <?php  session_start();
-                    if(!isset($_SESSION['username']))
-                    {
-                        header("Location:index.php");
-                    }
-                ?>
-
     <div class="container" id="container">
-    
-        <?php include("includes/header.html");?>
+
+    <div id="providersearch">
+        <?php include("includes/header.php");?>
             <?php include("includes/nav.html");?>
+
+            <div id="content">
 
             <div id="innerContainer">
 
@@ -34,12 +30,11 @@
                     $link=mysqli_connect($server,$dbuser,$password);
                     mysqli_select_db($link,"claimbiller");	
                     
-                    $provFName = $_POST['provFName'];
-                    $provLName = $_POST['provLName'];
+                    $provID = $_POST['provID'];
 
-                    $sql="SELECT * FROM provider WHERE (providerFName LIKE '$provFName%' AND providerLName LIKE '$provLName%') ";
-                    
-                    echo "<br><br><div style='margin-left:50px'>MATCHING PROVIDERS FOUND</div>";
+                    $sql="SELECT * from provider where providerID = $provID ";
+
+                    echo "<div style='margin-left:50px'>MATCHING PROVIDERS FOUND</div>";
 
                     $result=mysqli_query($link,$sql);
                     
@@ -71,7 +66,7 @@
                             <td style='min-width:10%'>$providerLName</td>
                             <td style='min-width:10%'>$providerEff</td>
                             <td style='min-width:10%'>$providerTerm</td>
-                            <td style='min-width:40px'><button class='btn4'><a href='editproviderdetail.php?providerID=$providerID'>Select</a></button></td>
+                            <td style='min-width:40px'><button class='btn_nav2'><a href='editproviderdetail.php?providerID=$providerID'>Select</a></button></td>
                             
                             </tr>";
                            
@@ -86,17 +81,14 @@
                     mysqli_close($link);
                     
                 ?>
-           
+           </div>
      </div>	
        
-               
-    </div>
-    <div id="footer">
-                    <?php include("includes/footer.html");?>
-                </div>
-    <script src="js/jquery.slim.min.js">
-    <script src="js/popper.min.js">
-    <script src="js/bootstrap.min.js">
+     </div>
+        <div id="footer">
+        <?php include("includes/footer.html");?>
+        </div>
+
 
 </body>
 </html>

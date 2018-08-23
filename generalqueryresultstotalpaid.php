@@ -84,8 +84,8 @@ mysqli_close($link);
 
 ?>
 
-<br><button onclick="history.go(-1);" style="margin-left:-30px;">Back </button>
-
+<br><button class="btn_nav2" onclick="history.go(-1);" style="margin-left:-30px;">Back </button>
+</div>
         </div> <!--Content Div-->
 
          <div id="footer">

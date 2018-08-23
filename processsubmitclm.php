@@ -18,6 +18,13 @@
 </head>
 <body>
 
+                <?php  session_start();
+                    if(!isset($_SESSION['username']))
+                    {
+                        header("Location:index.php");
+                    }
+                ?>
+
     <div class="container" id="container">
         <?php include("includes/header.html");?>
         <?php include("includes/nav.html");?>

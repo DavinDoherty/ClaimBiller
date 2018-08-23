@@ -22,24 +22,34 @@
 
     <div class="container" id="container">
     
-        <?php include("includes/header.php");?>
+        <?php include("includes/header.html");?>
             <?php include("includes/nav.html");?>
+            <?php
+               session_start();
+                if(!isset($_SESSION['username']))
+                {
+                    header("Location:index.php");
+                }
+                ?>
             
-            <div id="content">
-
             <div id="innerContainer">
             <br>
-            <div><h4>PROVIDER HAS BEEN EDITED SUCCESSFULLY</h4></div><br>
+            <div><h4>PROVIDER HAS BEEN DELETED</h4></div><br>
 
                  <button class='btn'><a href='admin.php' style='text-decoration: none;'>RETURN TO ADMIN</a></button><br>
-                
+           
+
             </div>	
-                </div>
+       
                
     </div>
     <div id="footer">
                     <?php include("includes/footer.html");?>
                 </div>
+    <script src="js/jquery.slim.min.js">
+    <script src="js/popper.min.js">
+    <script src="js/bootstrap.min.js">
 
 </body>
 </html>
+

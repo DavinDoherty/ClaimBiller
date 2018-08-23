@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/page_text.css">
     <link rel="stylesheet" href="css/forms.css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   
 </head>
 <body>
 

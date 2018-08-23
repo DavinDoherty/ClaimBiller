@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/page_text.css">
     <link rel="stylesheet" href="css/forms.css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
 
@@ -20,42 +19,43 @@
 
         <div id="innerContainer">
 
-         <div id="editprovidersearch" >
+         <div id="memberHistorySearch" >
                         <form id="memberIdSearch" action="generalqueryresultsmember.php" method="POST">
                         <div> <h4> Search Member Claim History:</h4></div>
-                            <input id="memberID" name="memberID" placeholder="Member ID" value="" ><br>
-                            <input id="submit" type="submit" value="Run">
-                            <input type="button" onclick="clearFunction('memberIdSearch')" value="Clear">
+                            <input id="memberID" type="text" name="memberID" placeholder="Member ID" value=""><br>
+                            <input class="btn_nav2"  id="submit" type="submit" value="Run">
+                            <input class="btn_nav2" type="button" onclick="clearFunction('memberIdSearch')" value="Clear" style="margin-top:15px;">
                         </form>
-                            
-                             
                     </div>
 
             </div>
 
-            <div id="editprovidersearch" >
+            <div id="billedVersusPaid" >
                         <form id="paidAmtSearch" action="generalqueryresultstotalpaid.php" method="POST">
-                        <div> <H4> View Total Billed Versus Paid:</H4></div>
-                            <input id="fromDate" style="width:250px;" name="fromDate" placeholder="From Date (YYYY-MM-DD)" value="" ><br>
-                            <input id="toDate" style="width:250px;" name="toDate" placeholder="To Date (YYYY-MM-DD)" value="" ><br>
-                            <input id="submit" type="submit" value="Run">
-                            <input type="button" onclick="clearFunction('paidAmtSearch')" value="Clear">
+                        <div> <H4> View Total Billed Versus Paid: </H4></div>
+                            <input id="fromDate" type="text" name="fromDate" data-toggle="tooltip" data-placement="bottom" title="Must be YYYY-MM-DD Format" placeholder="From Date" value="" ><br>
+                            <input id="toDate" type="text" name="toDate" data-toggle="tooltip" data-placement="bottom" title="Must be YYYY-MM-DD Format" placeholder="To Date" value="" style="margin-top:5px;" ><br>
+                            <input class="btn_nav2" id="submit" style="margin-top:10px;"  type="submit" value="Run">
+                            <input class="btn_nav2" type="button" style="margin-top:15px;" onclick="clearFunction('paidAmtSearch')" value="Clear">
                         </form>
-                            
                              
                     </div>
 
             </div>
-
+            
+            <!--JS Clear Applicable Form-->
             <script>
                 function clearFunction(formId) {
-
-                    
                         document.getElementById(formId).reset();
-                    
-                   
                 }
-            </script>
+            </script>  
+             
+             <!--JS Date Tooltip-->
+             <script>
+                    $(document).ready(function(){
+                        $('[data-toggle="tooltip"]').tooltip();   
+                    });
+               </script>
 
         </div> <!--Content Div-->
 

@@ -29,7 +29,7 @@
 
             <div id="innerContainer">
             <br>
-            <div><h4>PROVIDER HAS BEEN EDITED SUCCESSFULLY</h4></div><br>
+            <div><h4>PROVIDER HAS BEEN SUCCESSFULLY DELETED</h4></div><br>
 
                  <button class='btn'><a href='admin.php' style='text-decoration: none;'>RETURN TO ADMIN</a></button><br>
                 

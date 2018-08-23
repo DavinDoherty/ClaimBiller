@@ -17,15 +17,22 @@
 
             <?php include("includes/header.php");?>
             <?php include("includes/nav.html");?><br>
-            
-            <div id="content">
 
+            <?php
+            session_start();
+                            if(!isset($_SESSION['username']))
+                            {
+                                header("Location:index.php");
+                            }
+            ?>
         <div id="innerContainer">
                
-                <div><h4>Search For Provider To Edit</h4></div><br>
+                <div><font style="font-size:150%">Search For Provider To Delete</font><br>
+                <div><h4><font style="color:red">This action should only be carried out for invalid entries.<br>
+                If provider has terminated - update the provider's terminition date using the 'Edit Provider' option.</h4></font></div><br>
                 
                 <div id="editprovidersearch" >
-                    <form action="providersearchID.php" method="POST">
+                    <form action="providersearchID_delete.php" method="POST">
                         <label> Search by ID</label><br>
                         <input id="provID" name="provID" value="" >
                         <input id="submit" type="submit" value="Search"><br><br>
@@ -35,20 +42,17 @@
                     
                 </div>
                 <div id="editprovidersearchName" >
-                    <form action="providersearchName.php" method="POST">
+                    <form action="providersearchName_delete.php" method="POST">
                         <label> Search by Name</label><br>
                         <input id="provFName" name="provFName" value="" placeholder="first name">
                         <input id="provLName" name="provLName" value="" placeholder="last name" >
                         <input id="submit" type="submit" value="Search">
                     </form>
         </div>
-</div>
-</div>
-        <div id="footer">
-        <?php include("includes/footer.html");?>
-        </div>
-
-    
+    </div>
+    <script src="js/jquery.slim.min.js">
+    <script src="js/popper.min.js">
+    <script src="js/bootstrap.min.js">
 
 </body>
 </html>

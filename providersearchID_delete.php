@@ -9,15 +9,24 @@
     <link rel="stylesheet" href="css/page_text.css">
     <link rel="stylesheet" href="css/forms.css">
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  
 </head>
 <body>
 
+                <?php  session_start();
+                    if(!isset($_SESSION['username']))
+                    {
+                        header("Location:index.php");
+                    }
+                ?>
+
     <div class="container" id="container">
 
-    <div id="providersearch">
-        <?php include("includes/header.html");?>
+    
+        <?php include("includes/header.php");?>
             <?php include("includes/nav.html");?>
+
+             <div id="content"> 
 
             <div id="innerContainer">
 
@@ -32,7 +41,7 @@
 
                     $sql="SELECT * from provider where providerID = $provID ";
 
-                    echo "<br><br><div style='margin-left:50px'>MATCHING PROVIDERS FOUND</div>";
+                    echo "<div style='margin-left:50px'>MATCHING PROVIDERS FOUND</div>";
 
                     $result=mysqli_query($link,$sql);
                     
@@ -64,7 +73,7 @@
                             <td style='min-width:10%'>$providerLName</td>
                             <td style='min-width:10%'>$providerEff</td>
                             <td style='min-width:10%'>$providerTerm</td>
-                            <td style='min-width:40px'><button class='btn4'><a href='deleteproviderdetail.php?providerID=$providerID'>Select</a></button></td>
+                            <td style='min-width:40px'><button class='btn4'><a href='confirmdeleteprovider.php?providerID=$providerID'>Select</a></button></td>
                             
                             </tr>";
                            
@@ -81,13 +90,12 @@
                 ?>
            </div>
      </div>	
-       
+     <div id="footer">
+                    <?php include("includes/footer.html");?>
+                </div>
         
     </div>
-    <script src="js/jquery.slim.min.js">
-    <script src="js/popper.min.js">
-    <script src="js/bootstrap.min.js">
-
+  
 </body>
 </html>
 

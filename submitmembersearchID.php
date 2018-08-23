@@ -13,19 +13,20 @@
 </head>
 <body>
 
-    <div class="container" id="container">
-    
                 <?php  session_start();
                     if(!isset($_SESSION['username']))
                     {
                         header("Location:index.php");
                     }
                 ?>
-       
+
+   <div class="container" id="container">
         <?php include("includes/header.php");?>
-            <?php include("includes/nav.html");?>
-            <div id="content">
+        <?php include("includes/nav.html");?>
+        <div id="content">
+
             <div id="innerContainer">
+                
 
                 <?php   
                     $server="localhost";
@@ -34,17 +35,17 @@
                     $link=mysqli_connect($server,$dbuser,$password);
                     mysqli_select_db($link,"claimbiller");	
                     
-                    $provID = $_POST['provID'];
+                    $memberID = $_POST['memberID'];
 
-                    $sql="SELECT * from provider where providerID = $provID ";
+                    $sql="SELECT * from member where memberID = $memberID ";
 
-                    echo "<div style='margin-left:50px'>MATCHING PROVIDERS FOUND</div>";
+                    echo "<br><br><div style='margin-left:50px'>MATCHING MEMBERS FOUND</div>";
 
                     $result=mysqli_query($link,$sql);
                     
                     if(mysqli_num_rows($result) > 0)
                     {
-                        echo "<table class='tbl_selectProv' width='50%' cellspacing='0'>";
+                        echo "<table class='tbl_selectProv' width='50%' cellspacing='0' style='margin-top:20px;'>";
                         
                         echo"<tr>
                         <th>ID</th>
@@ -56,19 +57,20 @@
 
                         while($row=mysqli_fetch_array($result))
                         {
-                            $providerID=$row["providerID"];
-                            $providerFName=$row["providerFName"];
-                            $providerLName=$row["providerLName"];
-                            $providerEff=$row["providerEff"];
-                            $providerTerm=$row["providerTerm"];
+                            $memberID=$row["memberID"];
+                            $memberFName=$row["memberFName"];
+                            $memberLName=$row["memberLName"];
+                            $memberEff=$row["memberEff"];
+                            $memberTerm=$row["memberTerm"];
                             
                             echo "<tr >
-                            <td style='width:8%' align='center'>$providerID</td>
-                            <td style='min-width:8%'>$providerFName</td>
-                            <td style='min-width:10%'>$providerLName</td>
-                            <td style='min-width:10%'>$providerEff</td>
-                            <td style='min-width:10%'>$providerTerm</td>
+                            <td style='width:8%' align='center'>$memberID</td>
+                            <td style='min-width:8%'>$memberFName</td>
+                            <td style='min-width:10%'>$memberLName</td>
+                            <td style='min-width:10%'>$memberEff</td>
+                            <td style='min-width:10%'>$memberTerm</td>
                            
+                            
                             </tr>";
                            
                         }
@@ -82,17 +84,15 @@
                     mysqli_close($link);
                 ?>
 
-                    <br><br><button class="btn_nav2" style="width:100px; margin-left:50px;" onclick="history.go(-1);" >Back </button>
-                    </div> <!--Inner Container-->
-                
-               
-                </div> <!--Content Div-->
-    
-                <div id="footer" style="margin-left:-50px">
-                    <?php include("includes/footer.html");?>
-                </div>
-     
-        </div> <!--Container Div-->
+                    <br><button onclick="history.go(-1);" style="margin-left:50px;">Back </button>
+
+           </div>
+     </div>	
+     <div id="footer" style="margin-left:-50px">
+                <?php include("includes/footer.html");?>
+      </div>
+        
+    </div>
     <script src="js/jquery.slim.min.js">
     <script src="js/popper.min.js">
     <script src="js/bootstrap.min.js">

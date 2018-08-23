@@ -13,22 +13,18 @@
 </head>
 <body>
 
-        <?php  session_start();
+                <?php  session_start();
                     if(!isset($_SESSION['username']))
                     {
                         header("Location:index.php");
                     }
-        ?>
+                ?>
 
     <div class="container" id="container">
 
-         <?php include("includes/header.php");?>
+    <div id="processedAddProvider">
+        <?php include("includes/header.html");?>
             <?php include("includes/nav.html");?>
-
-    <div id="content"> 
-
-    <div id="innerContainer">
-       
             
             
             <?php
@@ -54,7 +50,7 @@
                 
                 if(mysqli_query($link, $sql_insert)) {
                 echo "<h2>Provider Successfully Added</h2>";
-                echo "<a href='admin.php'><br><br> RETURN TO ADMIN PAGE</a>";}
+                echo "<a href='manageprovider.php'><br><br> RETURN TO MANAGE PROVIDER PAGE</a>";}
                 else {
                 echo "AN ERROR OCCURED, PLEASE TRY AGAIN";
                 }
@@ -62,14 +58,12 @@
             ?>
 		
      </div>	
-
-     </div>
-     <div id="footer">
-        <?php include("includes/footer.html");?>
-        </div>
-        
+       
         
     </div>
+    <script src="js/jquery.slim.min.js">
+    <script src="js/popper.min.js">
+    <script src="js/bootstrap.min.js">
 
 </body>
 </html>

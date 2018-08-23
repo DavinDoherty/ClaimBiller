@@ -34,6 +34,8 @@
                     $link=mysqli_connect($server,$dbuser,$password);
                     mysqli_select_db($link,"claimbiller");	
                     
+                    $claimPaidAmt = 0;
+
                     $sql="SELECT * FROM claim_header WHERE complete = 'N' AND claimStatus = 'Denied' ORDER BY submittedDate ";
 
                     echo "<div style='margin-left:-30px'>ALL DENIED CLAIMS</div><br>";
@@ -69,11 +71,11 @@
                             $submittedDate=$row["submittedDate"];
                             $claimStatus=$row["claimStatus"];
                             $processedDate=$row["processedDate"];
-                            $claimPaidAmt=number_format($row["claimPaidAmt"]);
+                            if($claimPaidAmt > 0) {$claimPaidAmt=number_format($row["claimPaidAmt"]);}
                             $insurerComments=$row["insurerComments"];
 
                             echo "<tr >
-                            <td style=align='center'><a href='archiveclaim.php?claimID=$claimID'>Archive</a></td>
+                            <td style=align='center'><font color='#7DA3A1'><a href='archiveclaim.php?claimID=$claimID'>Archive</a></font></td>
                             <td style='width:8%;' align='center'>$claimID</td>
                             <td style='min-width:8%;'>$memberID</td>
                             <td style='min-width:8%;'>$providerID</td>
@@ -85,7 +87,7 @@
                             <td><?php echo $claimPaidAmt ?: '-'; ?></td>
                             <td><?php echo $insurerComments ?: '-'; ?></td>
                            <?php echo "
-                            <td style='min-width:40px;'><button class='btn4'><a href='viewclaimdetail.php?claimID=$claimID'>Detail</a></button></td>
+                            <td style='min-width:40px;'><button class='btn4'><a href='viewclaimdetail.php?claimID=$claimID&page=openrecords'>Detail</a></button></td>
                             
                             </tr>";
                            

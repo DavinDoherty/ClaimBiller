@@ -18,8 +18,10 @@
         <?php include("includes/header.php");?>
             <?php include("includes/nav.html");?>
             
+            <div id="content">
+
             <div id="innerContainer">
-            <br>
+            
             <div><h4>CONFIRM DELETE PROVIDER</h4></div>
 
                 <?php   
@@ -103,22 +105,20 @@
                 <?php
 
                 echo"
-                Are you sure you want to delete this provider? <br>This action cannot be undone<br>
+                <h4>Are you sure you want to delete this provider? <br>This action cannot be undone </h4><br>
 
                 <button class='btn'><a href='deleteprovider.php?providerID=$providerID' style='text-decoration: none;'>DELETE</a></button>
                 <button class='btn'><a href='manageproviders.php' style='text-decoration: none;'>CANCEL</a></button>";
                 
                 ?>
      </div>	
-       
+                </div>
                
     </div>
     <div id="footer">
                     <?php include("includes/footer.html");?>
                 </div>
-    <script src="js/jquery.slim.min.js">
-    <script src="js/popper.min.js">
-    <script src="js/bootstrap.min.js">
+                </div>   
 
 </body>
 </html>

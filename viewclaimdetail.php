@@ -28,20 +28,28 @@
                             }
                     
                             $server="localhost";
+                            
                     $dbuser="root";
                     $password="";
                     $link=mysqli_connect($server,$dbuser,$password);
                     mysqli_select_db($link,"claimbiller");	
                     
                     $claimID = $_GET['claimID'];
+                    $sourcePage = $_GET['page'];
                     $claimPaidAmt = 0;
+                    $checkNbr = '-';
+                    $insurerComments = '-';
 
                     $sql="SELECT * FROM claim_header WHERE claimID = $claimID ";
                     $sql2="SELECT * FROM claim_detail WHERE claimRef = $claimID ";
+
+                    $sql3="SELECT SUM(insurerPaidAmt) AS PaidAmt FROM claim_detail WHERE claimRef = $claimID ";
                     /*$sqlAmtBilled="SELECT SUM(amtBilled) AS TotalBilled FROM claim_detail WHERE claimRef = $claimID ";*/
 
                     $result=mysqli_query($link,$sql);
                     $result2=mysqli_query($link,$sql2);
+
+                    $result3=mysqli_query($link,$sql3);
 
                     $row=mysqli_fetch_array($result);
 
@@ -64,13 +72,17 @@
                     $claimStatus=$row["claimStatus"];
                     $processedDate=$row["processedDate"];
                     $claimPaidDate=$row["claimPaidDate"];
-                    
-                    if($claimPaidAmt > 0)
-                    {
-                        $claimPaidAmt=$row["claimPaidAmt"];
-                    }
+
                     $checkNbr=$row["checkNbr"];
                     $insurerComments=$row["insurerComments"];
+                    
+
+                    if(mysqli_num_rows($result3) > 0)
+                    {
+                        $row=mysqli_fetch_array($result3);
+                        $claimPaidAmt= number_format((float)$row["PaidAmt"], 2, '.', '');
+                    }
+
 
                     echo "<table class='tbl_claimDetail' width='70%' cellspacing='0'>";
                         
@@ -105,7 +117,7 @@
                     <tr>
                     <th>Submitted</th>
                     <th>Status</th>
-                    <th style="color:#c2c944;">Processed</th>
+                    <th style="color:#c2c944;">Processed </th>
                     <th style="color:#c2c944;">Paid</th>
                     <th style="color:#c2c944;">Paid Amt</th>
                     <th style="color:#c2c944;">Check Nbr</th>
@@ -133,8 +145,8 @@
                         echo "<table class='tbl_claimDetail' min-width='70%' margin-top='25px' cellspacing='0'>";
 
                         echo "<tr >
-                        <th>Claim ID</th>
-                        <th>Detail Line</th>
+                       
+                        <th>Line</th>
                         <th>Detail DOS</th>
                         <th>Proc Code</th>
                         <th>Mod1</th>
@@ -153,14 +165,15 @@
                             $procCode=$row2["procCode"];
                             $procMod1=$row2["procMod1"];
                             $procMod2=$row2["procMod2"];
-                            $amtBilled=$row2["amtBilled"];
-                            $insurerAdjAmt=$row2["insurerAdjAmt"];
+                            $amtBilled=number_format((float)$row2["amtBilled"], 2, '.', '');
+                           
+                            $insurerAdjAmt=number_format((float)$row2["insurerAdjAmt"], 2, '.', '');
                             $insurerAdjCode=$row2["insurerAdjCode"];
                             $insurerAdjComment=$row2["insurerAdjComment"];
-                            $insurerPaidAmt=$row2["insurerPaidAmt"];
+                            $insurerPaidAmt=number_format((float)$row2["insurerPaidAmt"], 2, '.', '');
 
                             echo"<tr>
-                            <td>$claimID</td>
+                           
                             <td>$detailLine</td>
                             <td>$detailDOS</td>
                             <td>$procCode</td>"?>
@@ -184,10 +197,22 @@
                     }
 
                     mysqli_close($link);
-                   
                     
+                    if($sourcePage == 'queryresults')
+                    {
+                        ?>
+                        <br><button onclick="history.go(-2);">Back </button>
+                        <?php
+                    }
+                    else
+                    {
+                        ?>
+                        <br><button onclick="history.go(-1);">Back </button>
+                        <?php
+                    }
                     ?>
-                    <br><button onclick="history.go(-2);">Back </button>
+
+                    
             </div>
 
         </div> <!--Content Div-->
